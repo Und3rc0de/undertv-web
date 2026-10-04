@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090c">
+  <meta name="description" content="Guía de actualización, instalación y compatibilidad de UnderTV para Android, Android TV, Google TV y Windows.">
+  <title>UnderTV · Descargas y ayuda</title>
+  <style>
+    :root { color-scheme:dark; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:#09090c; color:#f8f8fa; --red:#ed1832; --muted:#aaaab4; --line:#303038; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; min-height:100vh; background:radial-gradient(ellipse at 10% 0%,#ed18322e,transparent 34rem),radial-gradient(ellipse at 100% 38%,#64266e20,transparent 34rem),#09090c; }
+    a { color:inherit; }
+    .topbar { position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(22px,calc((100vw - 980px)/2));border-bottom:1px solid #ffffff12;background:#09090cdd;backdrop-filter:blur(16px); }
+    .brand { display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.4px; }
+    .logo { display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:linear-gradient(145deg,#ff4058,#b7001a);box-shadow:0 0 24px #ed183255;font-size:18px;font-weight:950; }
+    .nav { display:flex;gap:18px;align-items:center;color:#c4c4cc;font-size:13px; }
+    .nav a { text-decoration:none;transition:color .2s; }.nav a:hover { color:#ff7888; }
+    main { width:min(940px,calc(100% - 32px));margin:auto;padding:35px 0 55px; }
+    .hero { position:relative;overflow:hidden;padding:42px 36px 36px;border:1px solid #ffffff17;border-radius:28px;background:linear-gradient(115deg,#211116ed,#17171edb 62%,#211725e8);box-shadow:0 24px 75px #0006; }
+    .hero::after { content:"";position:absolute;width:260px;height:260px;right:-75px;top:-95px;border-radius:50%;background:#ed183228;filter:blur(8px);animation:float 7s ease-in-out infinite;pointer-events:none; }
+    .eyebrow { position:relative;z-index:1;display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid #ff526744;border-radius:99px;background:#ed18321b;color:#ffb2bc;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase; }
+    .pulse { width:8px;height:8px;border-radius:50%;background:#ff4159;box-shadow:0 0 0 0 #ff415988;animation:pulse 1.8s infinite; }
+    h1 { position:relative;z-index:1;max-width:720px;margin:18px 0 12px;font-size:clamp(38px,7vw,65px);line-height:.99;letter-spacing:-3.5px; }
+    .hero p { position:relative;z-index:1;max-width:660px;margin:0;color:#c2c1ca;font-size:16px;line-height:1.65; }
+    .version { position:relative;z-index:1;display:inline-block;margin-top:17px;color:#eeeef1;font-size:13px; }.version::before { content:"";display:inline-block;width:7px;height:7px;margin:0 8px 1px 0;border-radius:50%;background:#36d990; }
+    .hero-actions { position:relative;z-index:1;display:flex;gap:10px;flex-wrap:wrap;margin-top:22px; }
+    .button { display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:42px;padding:10px 15px;border:1px solid #ff3e58;border-radius:12px;background:linear-gradient(115deg,#f0223d,#ce0925);color:white;text-decoration:none;font-size:13px;font-weight:800;box-shadow:0 7px 22px #c500282c;transition:transform .2s,filter .2s,box-shadow .2s; }
+    .button:hover { transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 11px 26px #df092f44; }.button.secondary { border-color:#494952;background:#26262d;box-shadow:none; }.button.disabled { opacity:.5;pointer-events:none; }
+    section { scroll-margin-top:82px;margin-top:17px;padding:25px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#1e1e25f7,#131318f2);box-shadow:0 15px 48px #0003;animation:rise .55s ease both; }
+    section:nth-of-type(2) { animation-delay:.06s; } section:nth-of-type(3) { animation-delay:.12s; } section:nth-of-type(4) { animation-delay:.18s; } section:nth-of-type(5) { animation-delay:.24s; } section:nth-of-type(6) { animation-delay:.3s; }
+    .section-head { display:flex;align-items:flex-start;gap:14px;margin-bottom:18px; }
+    .section-icon { display:grid;place-items:center;flex:none;width:43px;height:43px;border-radius:14px;background:#e509241d;color:#ff7181;font-size:22px; }
+    h2 { margin:0;font-size:22px;letter-spacing:-.5px; } h3 { margin:0;font-size:16px; }
+    .muted { color:var(--muted);line-height:1.6; }.section-head p { margin:5px 0 0;font-size:14px; }
+    .steps { display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:step; }
+    .steps li { counter-increment:step;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:12px 14px;border:1px solid #36363e;border-radius:14px;background:#202027;line-height:1.55;color:#dedee4;font-size:14px; }
+    .steps li::before { content:counter(step);display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:#ed183225;color:#ff8c9a;font-weight:900; }
+    .notice { margin-top:13px;padding:13px 15px;border-left:3px solid #ffbd4a;border-radius:0 12px 12px 0;background:#ffbd4a12;color:#e7d8b7;font-size:13px;line-height:1.55; }
+    .apk-grid,.guide-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:12px; }
+    .device-card { display:flex;flex-direction:column;min-height:225px;padding:17px;border:1px solid #383841;border-radius:16px;background:linear-gradient(145deg,#232329,#1a1a20);transition:transform .22s,border-color .22s,box-shadow .22s; }
+    .device-card:hover,.guide:hover { transform:translateY(-3px);border-color:#a74352;box-shadow:0 12px 26px #0004; }
+    .device-card.recommended { border-color:#a93446;background:linear-gradient(150deg,#36151d,#1d1a20 72%); }
+    .tag { display:inline-flex;align-self:flex-start;margin-bottom:9px;padding:5px 8px;border-radius:8px;background:#ed183226;color:#ff9aa7;font-size:10px;font-weight:800;letter-spacing:.45px;text-transform:uppercase; }
+    .device-card p { flex:1;margin:7px 0 14px;color:#bdbdc6;font-size:13px;line-height:1.55; }
+    .device-card .button { align-self:flex-start; }.arch { display:inline-block;margin:0 0 2px;color:#85858f;font-family:ui-monospace,monospace;font-size:11px; }
+    .guide-grid { grid-template-columns:1fr 1fr;margin-top:13px; }
+    .guide { padding:17px;border:1px solid #383841;border-radius:16px;background:#202027;transition:transform .2s,border-color .2s,box-shadow .2s; }
+    .guide h3 { display:flex;align-items:center;gap:9px;margin-bottom:9px; }.guide p { margin:0;color:#b7b7c0;font-size:13px;line-height:1.6; }
+    .mini-steps { margin:9px 0 0;padding-left:20px;color:#c9c9d0;font-size:13px;line-height:1.68; }.mini-steps li+li { margin-top:4px; }
+    .subnote { margin:14px 0 0;font-size:12px; }
+    .desktop-row,.web-row { display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px;border:1px solid #393942;border-radius:16px;background:#202027; }.desktop-row p,.web-row p { margin:5px 0 0;font-size:13px; }.web-row { background:linear-gradient(110deg,#23212a,#202027); }
+    .support { text-align:center;background:radial-gradient(ellipse at 50% 0%,#3a1520 0,transparent 68%),linear-gradient(145deg,#211b24,#17171d); }
+    .support .section-head { justify-content:center;text-align:left; }.support-intro { max-width:540px;margin:0 auto 20px;font-size:14px; }
+    .donation-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left; }.donation { padding:17px;border:1px solid #46414b;border-radius:16px;background:#17171dbb; }.donation p { margin:7px 0 12px;font-size:13px; }
+    .alias { display:inline-block;padding:9px 11px;border:1px dashed #b64758;border-radius:10px;background:#3a1d24;color:#ffd8dd;font-family:ui-monospace,monospace;letter-spacing:.4px;user-select:all; }
+    .qr { width:min(100%,310px);height:auto;margin:12px auto 0;border-radius:12px;background:#19191f; }.qr-card { grid-column:1/-1;text-align:center; }
+    footer { padding:28px 10px 0;text-align:center;color:#767680;font-size:12px;line-height:1.7; }
+    @keyframes rise { from { opacity:0;transform:translateY(15px); } to { opacity:1;transform:translateY(0); } }
+    @keyframes pulse { 70% { box-shadow:0 0 0 8px #ff415900; } 100% { box-shadow:0 0 0 0 #ff415900; } }
+    @keyframes float { 50% { transform:translate(-18px,17px) scale(1.08); } }
+    @media(max-width:760px) { .apk-grid { grid-template-columns:1fr; }.device-card { min-height:0; }.nav { gap:12px;font-size:12px; } }
+    @media(max-width:560px) { .topbar { padding:10px 16px; }.nav { gap:10px; }.nav a:nth-child(2) { display:none; } main { width:calc(100% - 24px);padding-top:20px; }.hero { padding:25px 20px 24px;border-radius:22px; } h1 { letter-spacing:-1.8px; } section { padding:18px;border-radius:18px; }.section-head { gap:11px; }.section-icon { width:39px;height:39px; }.guide-grid,.donation-grid { grid-template-columns:1fr; }.desktop-row,.web-row { align-items:stretch;flex-direction:column; }.desktop-row .button,.web-row .button { width:100%; }.qr-card { grid-column:auto; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Navegación principal">
+    <a class="brand" href="#inicio" style="text-decoration:none"><span class="logo" aria-hidden="true">U</span> UnderTV</a>
+    <div class="nav"><a href="#actualizar">Actualizar</a><a href="#android">Android</a><a href="#tv">Android TV</a><a href="#windows">Windows</a><a href="#apoyar">Apoyar</a></div>
+  </nav>
+  <main id="inicio">
+    <header class="hero">
+      <div class="eyebrow"><span class="pulse"></span> Guía de instalación y actualización</div>
+      <h1>UnderTV.<br>Al día en cada pantalla.</h1>
+      <p>¿Ya tienes la app? Actualízala conservando tus datos. ¿Es tu primera vez? Aquí tienes los pasos y la descarga adecuada para tu celular, televisor o PC.</p>
+      <div class="version" id="version">Buscando la última versión…</div>
+      <div class="hero-actions"><a class="button" href="#actualizar">Ya tengo UnderTV · actualizar</a><a class="button secondary" href="#android">Primera instalación</a></div>
+    </header>
+
+    <section id="actualizar">
+      <div class="section-head"><div class="section-icon" aria-hidden="true">↻</div><div><h2>¿Ya tienes UnderTV? Actualiza así</h2><p class="muted">La actualización se instala encima de la versión actual. No desinstales la app: podrías borrar sus datos.</p></div></div>
+      <ol class="steps">
+        <li>Busca la arquitectura que usaste al instalar UnderTV. Si no la recuerdas, ARM64 es la adecuada para la mayoría de celulares y TV Box recientes.</li>
+        <li>Pulsa el botón de descarga correspondiente y espera a que termine. También puedes revisar el número de versión que aparece arriba.</li>
+        <li>Abre la notificación de descarga o entra en <strong>Archivos / Mis archivos → Descargas</strong> y pulsa el APK.</li>
+        <li>Si Android lo solicita, permite a tu navegador o administrador de archivos <strong>Instalar apps desconocidas</strong>. Vuelve atrás y pulsa <strong>Actualizar</strong> o <strong>Instalar</strong>.</li>
+        <li>Cuando termine, pulsa <strong>Abrir</strong>. La app y sus datos deberían conservarse.</li>
+      </ol>
+      <div class="notice"><strong>¿Dice “La aplicación no se instaló”?</strong> Comprueba que descargaste la misma arquitectura y que no borraste la versión anterior. Si persiste, la firma o el paquete instalado puede no corresponder con esta versión.</div>
+      <p class="muted subnote">No hace falta crear una cuenta para descargar la APK desde esta página.</p>
+    </section>
+
+    <section id="android">
+      <div class="section-head"><div class="section-icon" aria-hidden="true">▣</div><div><h2>Descargas Android</h2><p class="muted">Escoge el archivo que coincide con el procesador. En caso de duda, identifica el modelo del dispositivo; las APK de otra arquitectura pueden no instalarse.</p></div></div>
+      <div class="apk-grid">
+        <article class="device-card recommended"><span class="tag">Recomendada · probada en Moto Edge 40</span><span class="arch">arm64-v8a</span><h3>ARM64 · celulares y TV actuales</h3><p>Para la mayoría de teléfonos Android modernos, incluido el Motorola Edge 40, y muchos Android TV / Google TV recientes con procesador ARM de 64 bits.</p><a class="button" id="android-arm64" href="#">Descargar APK ARM64</a></article>
+        <article class="device-card"><span class="tag">Equipos antiguos</span><span class="arch">armeabi-v7a</span><h3>ARM32 · Android de 32 bits</h3><p>Para equipos ARM más antiguos que ejecutan Android de 32 bits. No la elijas solo porque el dispositivo sea viejo: confirma que el sistema sea de 32 bits.</p><a class="button secondary" id="android-arm32" href="#">Descargar APK ARM32</a></article>
+        <article class="device-card"><span class="tag">Emuladores y equipos Intel</span><span class="arch">x86_64</span><h3>x86_64 · emulador Android</h3><p>Para emuladores configurados como x86_64 y algunos dispositivos Android con procesador Intel. No corresponde a celulares ARM como Motorola o Samsung.</p><a class="button secondary" id="android-x64" href="#">Descargar APK x86_64</a></article>
+      </div>
+      <p class="muted subnote">La versión ARM64 es la recomendada para la mayoría de los usuarios. ARM32 y x86_64 se ofrecen para dispositivos específicos; no garantizan compatibilidad con cada fabricante o versión de Android.</p>
+      <div class="guide-grid">
+        <article class="guide"><h3><span aria-hidden="true">▯</span> Instalar en celular o tablet</h3><ol class="mini-steps"><li>Elige la APK adecuada y toca <strong>Descargar</strong>.</li><li>Abre la notificación o el archivo en <strong>Descargas</strong>.</li><li>Autoriza instalaciones desde esa fuente si Android pregunta.</li><li>Confirma y, al finalizar, abre UnderTV.</li></ol></article>
+        <article class="guide" id="tv"><h3><span aria-hidden="true">▱</span> Instalar en Android TV o Google TV</h3><ol class="mini-steps"><li>Descarga la APK en la TV con un navegador, o bájala en el celular y pásala a la TV mediante USB o una app de transferencia de archivos.</li><li>En la TV, abre <strong>Archivos / File Manager → Descargas</strong> o el USB y selecciona el APK.</li><li>Si aparece el aviso, activa <strong>Instalar apps desconocidas</strong> para ese administrador de archivos.</li><li>Confirma la instalación; luego busca UnderTV en <strong>Apps</strong>.</li></ol><p style="margin-top:9px">Usa ARM64 en la mayoría de las TV actuales; usa ARM32 solo si la TV ejecuta Android de 32 bits.</p></article>
+      </div>
+      <div class="notice">Los nombres de los ajustes cambian según la marca. En Android TV / Google TV, puede estar en <strong>Ajustes → Apps → Acceso especial de apps → Instalar apps desconocidas</strong>.</div>
+    </section>
+
+    <section id="windows">
+      <div class="section-head"><div class="section-icon" aria-hidden="true">▱</div><div><h2>Windows de escritorio</h2><p class="muted">Versión portátil para Windows x64. Se distribuye como ZIP.</p></div></div>
+      <div class="desktop-row"><div><h3>UnderTV para Windows x64</h3><p class="muted">Compatible con Windows 10/11 de 64 bits. Descarga, extrae el ZIP y abre <strong>UnderTV.exe</strong>.</p></div><a class="button secondary" id="windows-download" href="#">Descargar para Windows</a></div>
+      <ol class="mini-steps"><li>Primera instalación: extrae todos los archivos del ZIP en una carpeta y ejecuta <strong>UnderTV.exe</strong>.</li><li>Para actualizar: cierra UnderTV, descarga y extrae el ZIP nuevo en una carpeta nueva; abre el nuevo <strong>UnderTV.exe</strong>. Conserva la carpeta anterior hasta confirmar que la nueva versión abre.</li></ol>
+      <p class="muted subnote">Para los reproductores integrados se necesita Windows 10 versión 1809 o posterior y Microsoft Edge WebView2 Runtime. <a style="color:#ff9aa7" href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener noreferrer">Instalar WebView2 desde Microsoft</a>.</p>
+    </section>
+
+    <section id="web">
+      <div class="section-head"><div class="section-icon" aria-hidden="true">⌘</div><div><h2>Usar UnderTV en la web</h2><p class="muted">Abre la aplicación en el navegador sin instalar nada.</p></div></div>
+      <div class="web-row"><div><h3>Versión web</h3><p class="muted">La reproducción depende de la compatibilidad del navegador y de los permisos del servidor de origen.</p></div><a class="button secondary" href="./">Abrir UnderTV Web</a></div>
+    </section>
+
+    <section id="apoyar" class="support">
+      <div class="section-head"><div class="section-icon" aria-hidden="true">♡</div><div><h2>Apoya UnderTV</h2><p class="muted">Aporte voluntario para ayudar a sostener este proyecto personal.</p></div></div>
+      <p class="muted support-intro">Si UnderTV te resulta útil, puedes apoyar su desarrollo. No hace falta donar para descargar ni usar la aplicación.</p>
+      <div class="donation-grid">
+        <article class="donation"><h3>PayPal</h3><p class="muted">Aporta mediante PayPal.</p><a class="button" href="https://paypal.me/FrancoRobermazziotti" target="_blank" rel="noopener noreferrer">Donar con PayPal</a></article>
+        <article class="donation"><h3>Transferencia · Brubank</h3><p class="muted">Alias para transferencias:</p><span class="alias">francomazziotti</span></article>
+        <article class="donation qr-card"><h3>Binance Pay</h3><p class="muted">Escanea el QR desde la app de Binance. Revisa destinatario y datos en Binance antes de confirmar.</p><img class="qr" src="support/binance.jpg" alt="Código QR de Binance Pay"></article>
+      </div>
+    </section>
+    <footer>UnderTV · Proyecto personal para compartir con amigos · <a href="./" style="color:#aaaab4">Abrir la app web</a></footer>
+  </main>
+  <script>
+    fetch('./updates.json', { cache: 'no-store' })
+      .then(response => { if (!response.ok) throw new Error('No se pudo leer la versión'); return response.json(); })
+      .then(data => {
+        document.getElementById('version').textContent = `Versión ${data.version_name} · compilación ${data.version_code}`;
+        const downloads = data.downloads || {};
+        const android = downloads.android || {};
+        const setLink = (id, url) => {
+          const link = document.getElementById(id);
+          if (url) link.href = url;
+          else { link.href = '#'; link.classList.add('disabled'); link.setAttribute('aria-disabled', 'true'); link.textContent = 'No disponible'; }
+        };
+        setLink('android-arm64', android.arm64?.url);
+        setLink('android-arm32', android.arm32?.url);
+        setLink('android-x64', android.x86_64?.url);
+        setLink('windows-download', downloads.windows?.url);
+      })
+      .catch(() => { document.getElementById('version').textContent = 'No se pudo cargar la versión. Recarga la página.'; });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "changelog": "Mejoras y correcciones de UnderTV.",
+  "version_name": "1.1.4",
+  "downloads": {
+    "windows": {
+      "sha256": "86864f196a6d852254c61ae62697d235c6a14f2596f4ba06c52aa30e3694f1df",
+      "url": "https://und3rc0de.github.io/undertv-web/downloads/UnderTV-1.1.4-18-windows-x64.zip"
+    },
+    "android": {
+      "arm64": {
+        "url": "https://und3rc0de.github.io/undertv-web/downloads/android/UnderTV-v1.1.4-arm64-v8a.apk"
+      },
+      "arm32": {
+        "url": "https://und3rc0de.github.io/undertv-web/downloads/android/UnderTV-v1.1.4-armeabi-v7a.apk"
+      },
+      "x86_64": {
+        "url": "https://und3rc0de.github.io/undertv-web/downloads/android/UnderTV-v1.1.4-x86_64.apk"
+      }
+    },
+    "web": {
+      "url": "https://und3rc0de.github.io/undertv-web/"
+    }
+  },
+  "version_code": 18
+}
